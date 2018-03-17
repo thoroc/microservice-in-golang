@@ -11,12 +11,14 @@ const (
 	vesselCollection = "vessels"
 )
 
+// Repository interface
 type Repository interface {
 	FindAvailable(*pb.Specification) (*pb.Vessel, error)
 	Create(vessel *pb.Vessel) error
 	Close()
 }
 
+// VesselRepository public properties
 type VesselRepository struct {
 	session *mgo.Session
 }
@@ -41,10 +43,12 @@ func (repo *VesselRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel,
 	return vessel, nil
 }
 
+// Create new Vessel
 func (repo *VesselRepository) Create(vessel *pb.Vessel) error {
 	return repo.collection().Insert(vessel)
 }
 
+// Close connection to repository
 func (repo *VesselRepository) Close() {
 	repo.session.Close()
 }
