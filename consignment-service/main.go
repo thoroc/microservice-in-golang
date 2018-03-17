@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 
-	vesselProto "github.com/EwanValentine/shippy/vessel-service/proto/vessel"
 	micro "github.com/micro/go-micro"
 	pb "github.com/thoroc/microservice-in-golang/consignment-service/proto/consignment"
+	vesselProto "github.com/thoroc/microservice-in-golang/vessel-service/proto/vessel"
 	"golang.org/x/net/context"
 )
 
